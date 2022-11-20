@@ -8,6 +8,7 @@ function initMap() {
         center: center,
         zoom: 12
     });
+
     marker = new google.maps.Marker({
         map: map,
         position: center,
@@ -21,4 +22,29 @@ function initMap() {
     marker.addListener('position_changed', ()=>{
         map.setCenter(marker.position);
     });
+}
+
+function addMarker(evt){
+    marker.setPosition(evt.latLng);
+}
+
+function salvar(){
+    const obj = {
+        nome: document.getElementById('nomeCadastro').value,
+        lat: marker.getPosition().lat(),
+        lng: marker.getPosition().lng()
+    };
+
+/*function buscar(){ 
+}*/   
+
+    fetch("http://localhost:3000/pontos",{
+        method: 'POST',
+        headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(obj)
+    }).then(response =>{alert('Salvo com sucesso')})
+    .catch(error => alert('Falha ao salvar!'));    
 }
