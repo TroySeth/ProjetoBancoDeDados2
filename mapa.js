@@ -28,15 +28,31 @@ function addMarker(evt){
     marker.setPosition(evt.latLng);
 }
 
+function buscar(){
+    let name = document.getElementById('nomeBusca').value;
+    let busca = Ponto.findOne({where: {nome: name}});
+    if(busca === null){
+        console.log("Não encontrado");
+    } else{
+        console.log(busca instanceof Ponto);
+        console.log(busca.nome);
+    }
+    fetch("http://localhost:3000/pontos",{
+        method: 'GET',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(obj)
+    })
+}
+
 function salvar(){
     const obj = {
         nome: document.getElementById('nomeCadastro').value,
         lat: marker.getPosition().lat(),
         lng: marker.getPosition().lng()
     };
-
-/*function buscar(){ 
-}*/   
 
     fetch("http://localhost:3000/pontos",{
         method: 'POST',
@@ -46,5 +62,5 @@ function salvar(){
         },
         body: JSON.stringify(obj)
     }).then(response =>{alert('Salvo com sucesso')})
-    .catch(error => alert('Falha ao salvar!'));    
+    .catch(error => alert('Falha ao salvar!'));
 }

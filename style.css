@@ -23,7 +23,7 @@
   display: block;
 }
 .botao{
-  margin-left: 55%;
+  align-items: center;
 }
 .botaoSalvar{
   display: block;
