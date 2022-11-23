@@ -29,22 +29,20 @@ function addMarker(evt){
 }
 
 function buscar(){
-    let name = document.getElementById('nomeBusca').value;
-    let busca = Ponto.findOne({where: {nome: name}});
-    if(busca === null){
-        console.log("Não encontrado");
-    } else{
-        console.log(busca instanceof Ponto);
-        console.log(busca.nome);
-    }
-    fetch("http://localhost:3000/pontos",{
-        method: 'GET',
-        headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(obj)
-    })
+    fetch("http://localhost:3000/pontos").then(response) => response.json())
+    .then(pontos) => {
+        for(let hemonucleo of pontos){
+            coordenadas ={};
+            coordenadas ={lat:hemonucleo.geometria.coordinates[0], lng: hemonucleo.geometria.coordiinates[1]};
+            nomes = hemonucleo.nome;
+            marker = new google.maps.Marker({
+                map: map,
+                position: coordenadas,
+                title: nomes,
+                draggable: false
+            });
+        }
+    }).catch(errror => alert('falha ao buscar.'))};
 }
 
 function salvar(){
