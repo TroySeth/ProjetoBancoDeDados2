@@ -38,7 +38,8 @@ function buscar(){
         map: map,
         draggable: false
     });
-    
+
+    const icone = "/img/pino-de-localizacao.png";
     fetch("http://localhost:3000/pontos").then((response) => response.json())
     .then((pontos) => {
         for(let hemonucleo of pontos){
@@ -49,6 +50,8 @@ function buscar(){
                 map: map,
                 position: coordenadas,
                 title: nomes,
+                icon: icone,
+                animation: google.maps.Animation.DROP,
                 draggable: false
             });
         }
