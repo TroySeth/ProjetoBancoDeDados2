@@ -39,7 +39,7 @@ function buscar(){
         draggable: false
     });
 
-    const icone = "/img/pino-de-localizacao.png";
+    const icone = "https://cdn-icons-png.flaticon.com/32/3180/3180139.png";
     fetch("http://localhost:3000/pontos").then((response) => response.json())
     .then((pontos) => {
         for(let hemonucleo of pontos){
