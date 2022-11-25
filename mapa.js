@@ -29,6 +29,16 @@ function addMarker(evt){
 }
 
 function buscar(){
+    map = new google.maps.Map(document.getElementById("map"), {
+        center: center,
+        zoom: 12
+    });
+
+    marker = new google.maps.Marker({
+        map: map,
+        draggable: false
+    });
+    
     fetch("http://localhost:3000/pontos").then((response) => response.json())
     .then((pontos) => {
         for(let hemonucleo of pontos){
