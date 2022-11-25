@@ -29,8 +29,8 @@ function addMarker(evt){
 }
 
 function buscar(){
-    fetch("http://localhost:3000/pontos").then(response) => response.json())
-    .then(pontos) => {
+    fetch("http://localhost:3000/pontos").then((response) => response.json())
+    .then((pontos) => {
         for(let hemonucleo of pontos){
             coordenadas ={};
             coordenadas ={lat:hemonucleo.geometria.coordinates[0], lng: hemonucleo.geometria.coordiinates[1]};
@@ -42,8 +42,9 @@ function buscar(){
                 draggable: false
             });
         }
-    }).catch(errror => alert('falha ao buscar.'))};
+    }).catch(errror => alert('falha ao buscar.'));
 }
+
 
 function salvar(){
     const obj = {
