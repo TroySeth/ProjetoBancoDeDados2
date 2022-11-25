@@ -23,7 +23,7 @@ const getPontos = async(request, response) =>{
 
 const sincronizar = async(request, response) =>{
     await Ponto.sync();
-    response.status(200).send('Sincronizado');
+    response.status(200).send('<h3>Sincronizado com a base de dados.</h3>');
 };
 
 module.exports = {addPonto, sincronizar, getPontos};
