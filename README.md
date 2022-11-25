@@ -1,10 +1,8 @@
 # ProjetoBancoDeDados2
 
-Inicialização
+## Inicialização
 
-Clonar o repositório
-Criar na pasta raiz um arquivo .env, que apresenta os parâmetros de configuração do banco
-Exemplo do arquivo .env (trocar os valores das chaves pelos dados do seu banco):
+Clonar o repositório, criar na pasta raiz um arquivo .env, caso não o possua, que apresenta os parâmetros de configuração e conexão com o banco de dados.  Exemplo do arquivo .env (trocar os valores das chaves pelos dados do seu banco):
 
     PG_HOST = localhost
 
@@ -20,19 +18,23 @@ Exemplo do arquivo .env (trocar os valores das chaves pelos dados do seu banco):
 
 
 
-Em seguida:
+Em seguida no terminal:
 
 
     npm i
 
     npm start
+    
+    node index.js
 
 
-
-E por fim rodar:
+Depois entrar no seguinte endereço web para sincronizar com o banco
 
     localhost:3000/pontos 
 
 
+E por fim rodar o arquivo index.html
 
-para sincronizar o banco
+    start index.html
+    
+
