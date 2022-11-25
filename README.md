@@ -30,7 +30,7 @@ Em seguida no terminal:
 
 Depois entrar no seguinte endereço web para sincronizar com o banco
 
-    localhost:3000/pontos 
+    localhost:3000/ 
 
 
 E por fim rodar o arquivo index.html
