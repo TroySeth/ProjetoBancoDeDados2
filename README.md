@@ -25,7 +25,6 @@ Em seguida no terminal:
 
     npm start
     
-    node index.js
 
 
 Depois entrar no seguinte endereço web para sincronizar com o banco
